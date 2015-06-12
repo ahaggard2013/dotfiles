@@ -31,7 +31,17 @@ hi CursorLine term=bold cterm=bold guibg=Grey40
 " }}}
 " Key Remaps {{{
 nnoremap<leader><space> :nohlsearch<CR>
-autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)<cr>
+nnoremap th :tabnext<CR>
+nnoremap tl :tabprev<CR>
+nnoremap tn :tabnew<CR>
+nnoremap td  :tabclose<CR>
+
+autocmd FileType python nnoremap <F9> :w <bar> exec '!python' shellescape(@%,1)<cr>
+
+autocmd Filetype c nnoremap <F9> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
+autocmd Filetype cpp nnoremap <F9> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
 " }}}
 "  powerline setup {{{
 set laststatus=2 
@@ -46,12 +56,11 @@ let g:ycm_global_ycm_extra_conf = '.vim/bundle/YouCompleteMe/third_party/ycmd/cp
 " }}}
 " YCM Config {{{
 let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_key_list_select_completion = ['<tab>', '<Down>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 " }}}
 " UltiSnip Config {{{
-let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsExpandTrigger = "<C-c>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
