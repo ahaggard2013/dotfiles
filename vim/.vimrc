@@ -49,6 +49,7 @@ autocmd FileType html nnoremap <F9> :w <bar> exec '!chromium-browser % & disown'
 set tags=./tags;/
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+command Ctags execute "!ctags -R *" 
 "  }}}
 "  powerline setup {{{
 set laststatus=2 
