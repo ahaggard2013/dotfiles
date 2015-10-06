@@ -42,7 +42,14 @@ autocmd Filetype c nnoremap <F9> :w <bar> exec '!gcc '.shellescape('%').' -o '.s
 
 autocmd Filetype cpp nnoremap <F9> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
+autocmd FileType html nnoremap <F9> :w <bar> exec '!chromium-browser % & disown'<CR>
+
 " }}}
+" Tags {{{
+set tags=./tags;/
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+"  }}}
 "  powerline setup {{{
 set laststatus=2 
 set term=xterm-256color
