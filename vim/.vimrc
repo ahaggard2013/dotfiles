@@ -35,6 +35,7 @@ nnoremap th :tabnext<CR>
 nnoremap tl :tabprev<CR>
 nnoremap tn :tabnew<CR>
 nnoremap td  :tabclose<CR>
+inoremap jj <ESC>
 
 autocmd FileType python nnoremap <F9> :w <bar> exec '!python' shellescape(@%,1)<cr>
 
@@ -86,10 +87,13 @@ let g:syntastic_check_on_wq = 0
 "Vundle Begin {{{
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/	
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " }}}
 " Plugins {{{
+
+Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'gmarik/vundle'
 
 Plugin 'scrooloose/nerdtree.git'
@@ -101,10 +105,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 Plugin 'supertab'
-
-Plugin 'vim-surround'
-
-Plugin 'YouCompleteMe'
 
 Plugin 'scrooloose/syntastic.git'
 
